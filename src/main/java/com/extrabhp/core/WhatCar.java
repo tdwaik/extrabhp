@@ -22,6 +22,8 @@ public class WhatCar {
 
     public static MultivaluedMap<String, String> answers = null;
 
+    public static String noResults = "Sorry, I don't have answer for you right now! The website is still under development, your answers is logged and i'll try to find answer fot you ASAP, kindly try again later, Thanks!";
+
     public static Map<String, String> getNextQuestion(MultivaluedMap<String, String> answers) {
 
         WhatCar.answers = answers;
@@ -56,7 +58,7 @@ public class WhatCar {
                             if (GoodDriver.is(GoodDriver.pro) || GoodDriver.is(GoodDriver.yes) || GoodDriver.is(GoodDriver.modest)) {
                                 result.put("result", "Get a Mercedes-Benz SLS AMG E-Cell Roadster, Epic.");
                             }else if(GoodDriver.is(GoodDriver.stupid)) {
-                                result.put("result", "Bear with me, since you're a stupid driver just get a Tesla Model S and stay a way from the high end performance models like P100D, so you don't kill anybody");
+                                result.put("result", "Bear with me, since you're a stupid driver just get a `Tesla Model S` and stay a way from the high end performance models like P100D, so you don't kill anybody");
                             }
                             return result;
 
@@ -87,68 +89,98 @@ public class WhatCar {
 
                 if(WhatInMind.is(WhatInMind.musclecar)) {
 
-                    if(MoneyStatus.is(MoneyStatus.millionaire)) {
-
-                        if(GoodDriver.is(GoodDriver.pro) || GoodDriver.is(GoodDriver.yes)) {
-                            result.put("result", "Since you're a good driver, I think a Mercedes-Benz Electric SLS AMG is perfect, but you can also get the high end performance Tesla Model S P100D");
-                        }else if(GoodDriver.is(GoodDriver.modest)) {
-                            result.put("result", "Normally i'de recommend a Mercedes-Benz Electric SLS AMG, but since you're a modest driver stay a way from it and get the high end performance Tesla Model S P100D");
+                    if(MoneyStatus.is(MoneyStatus.millionaire) || MoneyStatus.is(MoneyStatus.aLot)) {
+                        if (GoodDriver.is(GoodDriver.pro) || GoodDriver.is(GoodDriver.yes)) {
+                            result.put("result", "What about `Dodge Viper` or a `Dodge Challenger Hellcat` or `Ford Mustang GT500`");
+                            return result;
+                        }else if (GoodDriver.is(GoodDriver.modest)) {
+                            result.put("result", "Bear with me, since you're a modest driver get a `Dodge Challenger` and stay a way from the high end performance models like `Hellcat`, so you don't kill anybody");
+                            return result;
                         }else if(GoodDriver.is(GoodDriver.stupid)) {
-                            result.put("result", "Bear with me, since you're a stupid driver just get a Tesla Model S and stay a way from the high end performance models like P100D, Or get a Tesla Model 3");
+                            result.put("result", "Bear with me, since you're a stupid driver get a `Dodge Challenger` and stay a way from the high end performance models like `Hellcat`, so you don't kill anybody");
+                            return result;
                         }
-                        return result;
-
-                    }else if(MoneyStatus.is("a-lot")) {
-
-                        if(GoodDriver.is(GoodDriver.pro) || GoodDriver.is(GoodDriver.yes)) {
-                            result.put("result", "Since you're a good driver, Get a Tesla Model S & try to get the high end P100D Model");
-                        }else if(GoodDriver.is(GoodDriver.modest)) {
-                            result.put("result", "Get a Tesla Model S, but since you're a modest driver try to stay a way from the high end performance models like P100D");
+                    }else if(MoneyStatus.is(MoneyStatus.enough)) {
+                        if (GoodDriver.is(GoodDriver.pro) || GoodDriver.is(GoodDriver.yes)) {
+                            result.put("result", "What about `Dodge Challenger SRT` or `Ford Mustang GT`");
+                            return result;
+                        }else if (GoodDriver.is(GoodDriver.modest)) {
+                            result.put("result", "Bear with me, since you're a modest driver get a `Dodge Challenger` and stay a way from the high end performance models like `Hellcat`, so you don't kill anybody");
+                            return result;
                         }else if(GoodDriver.is(GoodDriver.stupid)) {
-                            result.put("result", "Bear with me, since you're a stupid driver just get a Tesla Model S and stay a way from the high end performance models like P100D so you don't kill anybody , Or Tesla Model 3");
+                            result.put("result", "Bear with me, since you're a stupid driver get a `Dodge Challenger` and stay a way from the high end performance models like `Hellcat`, so you don't kill anybody");
+                            return result;
                         }
-
-                        return result;
-                    }else {
-                        result.put("result", "Ya, in your dreams!! Get Some Money first");
-                        return result;
-                    }
-                }
-
-                if(WhatInMind.is(WhatInMind.musclecar)) {
-                    if(MoneyStatus.is("enough")) {
-                        result.put("result", "Get a Tesla Model 3 or get Model S if you can afford it, if you can't afford any of them, then get a Ford Focus Electric! or Nissan LEAF!");
-                        return result;
                     }else if(MoneyStatus.is("broke")) {
-                        result.put("result", "I know this hard, but since you'r broke just get a Ford Focus Electric! or Nissan LEAF!, if you still can't afford any of them then get any old petrol car man !!!!");
-                        return result;
+                        result.put("result", "Broke!!! get a Ford Mustang (any old version if you can't afford a new one!)");
                     }
+
                 }
 
             }else if(Petrolhead.is(Petrolhead.no) || Petrolhead.is(Petrolhead.what)) { // non-petrolhead
 
                 // environment_care
-                if(EnvironmentCare.is(EnvironmentCare.aLot)) {
+                if(EnvironmentCare.is(EnvironmentCare.aLot) || EnvironmentCare.is(EnvironmentCare.aLittle)) {
 
-                    // another_car
-                    if(!answers.containsKey("another_car")) {
-                        result.put("next", "another_car");
+                    if (ElectricCar.is(ElectricCar.onlyElectric)) {
+                        result.put("result", nonElectricOnly());
                         return result;
+                    } else if (ElectricCar.is(ElectricCar.onlyFast)) {
+                        if (MoneyStatus.is(MoneyStatus.millionaire)) {
+                            if (GoodDriver.is(GoodDriver.pro) || GoodDriver.is(GoodDriver.yes)) {
+                                result.put("result", "Get `Tesla Model S` a great car, and try to get the high end performance models like P100D");
+                                return result;
+                            } else if (GoodDriver.is(GoodDriver.modest)) {
+                                result.put("result", "Bear with me, Since you're a modest driver get a `Tesla Model S` and stay a way from the high end performance models like P100D, so you don't kill anybody");
+                                return result;
+                            }
+                        } else if (MoneyStatus.is(MoneyStatus.aLot)) {
+                            if (GoodDriver.is(GoodDriver.pro) || GoodDriver.is(GoodDriver.yes)) {
+                                result.put("result", "Get `Tesla Model S` a great car, and try to get the high end performance models like P100D");
+                                return result;
+                            }
+                        }
                     }
-
-                }else if(EnvironmentCare.is(EnvironmentCare.aLittle)) {
-
-                    ElectricCar.answer();
-
-                    // another_car
-                    if(!answers.containsKey("another_car")) {
-                        result.put("next", "another_car");
-                        return result;
-                    }
-
-                }else if(EnvironmentCare.is(EnvironmentCare.no)) {
-
                 }
+
+                if(MoneyStatus.is(MoneyStatus.millionaire)) {
+                    if (GoodDriver.is(GoodDriver.pro) || GoodDriver.is(GoodDriver.yes)) {
+                        if(LookingFor.is(LookingFor.beautiful)) {
+                            result.put("result", "I'll recommend a super car, what about `Aston Martin Vanquish`");
+                            return result;
+                        }else if(LookingFor.is(LookingFor.luxury)) {
+                            result.put("result", "I'll recommend a super car, what about `Lamborghini Huracan` or `Ferrari LaFerrari`");
+                            return result;
+                        }else if(LookingFor.is(LookingFor.drivingExperience) || LookingFor.is(LookingFor.performance)) {
+                            result.put("result", "I'll recommend a super car, what about `Lamborghini Huracan` or `Ferrari LaFerrari` or `Porsche 911 GT3`");
+                            return result;
+                        }else if(LookingFor.is(LookingFor.rare)) {
+                            result.put("result", "I'll recommend a super car, what about `Ferrari LaFerrari`");
+                            return result;
+                        }
+                    }else if (GoodDriver.is(GoodDriver.modest)) {
+                        result.put("result", "Bear with me, I'll not recommend a super car for you cuz you're a modest driver, but here a good car for a millionaire what about `Nissan GTR Nismo`");
+                        return result;
+                    }else if(GoodDriver.is(GoodDriver.stupid)) {
+                        result.put("result", "Bear with me, I'll not recommend a super car for you cuz you're a stupid driver, but here a good car for a millionaire what about `Nissan GTR Nismo`");
+                        return result;
+                    }
+                }else if(MoneyStatus.is(MoneyStatus.aLot)) {
+                    result.put("result", "What about `BMW M4` or Mercedes-AMG GT`");
+                    return result;
+                }else if(MoneyStatus.is(MoneyStatus.enough)) {
+                    result.put("result", "What about `BMW 3 Series`");
+                    return result;
+                }else if(MoneyStatus.is("broke")) {
+                    result.put("result", "What about `Ford Fiesta S Sedan`");
+                    return result;
+                }
+
+//                // another_car
+//                if(!answers.containsKey("another_car")) {
+//                    result.put("next", "another_car");
+//                    return result;
+//                }
 
             }
 
@@ -156,7 +188,7 @@ public class WhatCar {
             return ask(e.getQuestionName());
         }
 
-        result.put("result", "Sorry, I don't have answer for you right now! The website is still under development, Kindly try again later. Thanks!");
+        result.put("result", noResult());
         return result;
     }
 
@@ -184,6 +216,37 @@ public class WhatCar {
         Map<String, String> result = new HashMap<>();
         result.put("next", questionName);
         return result;
+    }
+
+    private static String nonElectricOnly() throws QuestionNotFoundException {
+        if(MoneyStatus.is(MoneyStatus.millionaire)) {
+            if (GoodDriver.is(GoodDriver.pro) || GoodDriver.is(GoodDriver.yes)) {
+                return  "Get `Tesla Model S` a great car, and try to get the high end performance models like P100D";
+            }else if (GoodDriver.is(GoodDriver.modest)) {
+                return  "Bear with me, Since you're a modest driver get a `Tesla Model S` and stay a way from the high end performance models like P100D, so you don't kill anybody";
+            }else if(GoodDriver.is(GoodDriver.stupid)) {
+                return  "Bear with me, Since you're a stupid driver get a `Tesla Model S` and stay a way from the high end performance models like P100D, so you don't kill anybody";
+            }
+        }else if(MoneyStatus.is(MoneyStatus.aLot)) {
+            if (GoodDriver.is(GoodDriver.pro) || GoodDriver.is(GoodDriver.yes)) {
+                return  "Get `Tesla Model S` a great car, and try to get the high end performance models like P100D";
+            }else if (GoodDriver.is(GoodDriver.modest)) {
+                return  "For a modest driver get `Tesla Model S` a great car and `Ford Focus Electric` is also an option";
+            }else if(GoodDriver.is(GoodDriver.stupid)) {
+                return  "Bear with me, Since you're a stupid driver just get a `Tesla Model S` and stay a way from the high end performance models like P100D, so you don't kill anybody";
+            }
+        }else if(MoneyStatus.is(MoneyStatus.enough)) {
+            return "Get a `Tesla Model 3`, if you can't afford it then get a `Ford Focus Electric` or `Nissan LEAF`";
+        }else if(MoneyStatus.is("broke")) {
+            return "I know this hard, but since you'r broke just get a `Ford Focus Electric` or `Nissan LEAF`, if you still can't afford any of them then get any old petrol car man !!!!";
+        }
+
+        return noResult();
+    }
+
+    private static String noResult() {
+        // TODO log the answers
+        return noResults;
     }
 
 }

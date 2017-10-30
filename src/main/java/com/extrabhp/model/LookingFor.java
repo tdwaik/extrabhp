@@ -14,6 +14,7 @@ public class LookingFor {
     public static String luxury = "luxury";
     public static String rare = "rare";
     public static String beautiful = "beautiful";
+    public static String performance = "performance";
 
     public static boolean is(String answer) throws QuestionNotFoundException {
         return answer().equals(answer);
