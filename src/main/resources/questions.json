@@ -1,0 +1,161 @@
+{
+  "stages": [
+    {"id": 1, "name": "What side", "intro": "Let's kick off with this Question"},
+    {"id": 2, "name": "general Questions", "intro": "Some general Questions first"},
+    {"id": 3, "name": "Non petrolhead Questions", "intro": "The real Questions time"},
+    {"id": 4, "name": "petrolhead Questions", "intro": "The real Questions time"}
+  ],
+  "questions": [
+    {
+      "stage": 1, "name": "is_petrolhead",
+      "question": "let's kick off with this Question, do you know what \"Petrolhead\" means?",
+      "answers": [
+        {"value": "yes", "answer": "Of Curse"},
+        {"value": "no", "answer": "Never heard of it!"},
+        {"value": "what", "answer": "What ??!"}
+      ]
+    },
+
+    {
+      "stage": 2, "name": "coupe_sedan",
+      "question": "Coupe or Sedan ?",
+      "answers": [
+        {"value": "coupe", "answer": "Coupe (2 Doors)"},
+        {"value": "sedan", "answer": "Sedan (4 Doors)"}
+      ]
+    },
+    {
+      "stage": 2, "name": "marital_status",
+      "question": "What is your marital status?",
+      "answers": [
+        {"value": "single", "answer": "Single"},
+        {"value": "children", "answer": "Married, and i have children"},
+        {"value": "no-children", "answer": "Married but i don't have children"},
+        {"value": "no-care", "answer": "Married but nothing can pull me away from my dream car!"}
+      ]
+    },
+    {
+      "stage": 2, "name": "money_status",
+      "question": "Tell me, how much money do you have?",
+      "answers": [
+        {"value": "millionaire", "answer": "A Millionaire"},
+        {"value": "a-lot", "answer": "I have a high income"},
+        {"value": "enough", "answer": "I have enough"},
+        {"value": "broke", "answer": "Well, I'm broke!"}
+      ]
+    },
+    {
+      "stage": 2, "name": "good_driver",
+      "question": "Are you a good driver?",
+      "answers": [
+        {"value": "pro", "answer": "A Pro."},
+        {"value": "yes", "answer": "Yes, I'm good"},
+        {"value": "modest", "answer": "My skills are modest"},
+        {"value": "stupid", "answer": "I'm Stupid Driver!"}
+      ]
+    },
+    {
+      "stage": 2, "name": "another_car",
+      "question": "Do you have another car?",
+      "answers": [
+        {"value": "yes", "answer": "I Do"},
+        {"value": "no", "answer": "No"}
+      ]
+    },
+    {
+      "stage": 2, "name": "environment_care",
+      "question": "Does \"Environment\" mean anything to you?",
+      "answers": [
+        {"value": "a-lot", "answer": "A Lot"},
+        {"value": "a-little", "answer": "A Little"},
+        {"value": "no", "answer": "Never Heard of it"}
+      ]
+    },
+
+    {
+      "stage": 3, "name": "electric_car",
+      "question": "Any Chance to Pure Electric car?",
+      "answers": [
+        {"value": "no-way", "answer": "Not even an option!"},
+        {"value": "yes-option", "answer": "It's an option"},
+        {"value": "only-electric", "answer": "Yes, give me only Electric cars"},
+        {"value": "only-fast", "answer": "Only if it's fast"}
+      ]
+    },
+
+    {
+      "stage": 4, "name": "what_in_mind",
+      "question": "What's in your mind?",
+      "answers": [
+        {"value": "hypercar", "answer": "Hypercar"},
+        {"value": "supercar", "answer": "Supercar"},
+        {"value": "musclecar", "answer": "Muscle car"},
+        {"value": "german", "answer": "German car"},
+        {"value": "jdm", "answer": "JDM"},
+        {"value": "all", "answer": "Give me all options"},
+        {"value": "what", "answer": "What !!!"}
+      ]
+    },
+    {
+      "stage": 4, "name": "hybrid_cars",
+      "question": "Hybrid cars ?",
+      "answers": [
+        {"value": "yes-only", "answer": "Only Hybrid"},
+        {"value": "yes-option", "answer": "It's an option"},
+        {"value": "no", "answer": "No"},
+        {"value": "what", "answer": "What ??!"}
+      ]
+    },
+    {
+      "stage": 4, "name": "induction_type",
+      "question": "Naturally Aspirated or Forced Induction?",
+      "answers": [
+        {"value": "na", "answer": "Naturally Aspirated for sure"},
+        {"value": "forced-induction", "answer": "Forced Induction"},
+        {"value": "both", "answer": "Give me Both"},
+        {"value": "what", "answer": "What ??!"}
+      ]
+    },
+    {
+      "stage": 4, "name": "road_type",
+      "question": "Will you use it on Road or Track most of the time ?",
+      "answers": [
+        {"value": "na", "answer": "Road Focus"},
+        {"value": "forced-induction", "answer": "Track Focus"},
+        {"value": "what", "answer": "What ??!"}
+      ]
+    },
+    {
+      "stage": 4, "name": "transmission_type",
+      "question": "What Transmission do you prefer?",
+      "answers": [
+        {"value": "manual", "answer": "Manual"},
+        {"value": "auto", "answer": "Automatic (Torque Converter)"},
+        {"value": "semi-auto", "answer": "Semi-automatic (DCT, DSG, SMG, etc.)"},
+        {"value": "cvt", "answer": "CVT (Continuously Variable Transmission)"},
+        {"value": "what", "answer": "What ??!"}
+      ]
+    },
+    {
+      "stage": 4, "name": "looking_for",
+      "question": "What is more important for you?",
+      "answers": [
+        {"value": "driving-experience", "answer": "Driving Experience"},
+        {"value": "luxury", "answer": "Luxury"},
+        {"value": "rare", "answer": "Rare Car"},
+        {"value": "beautiful", "answer": "Beautiful car"}
+      ]
+    },
+    {
+      "stage": 4, "name": "old_school",
+      "question": "Are you an Old School soul?",
+      "answers": [
+        {"value": "yes", "answer": "Yes"},
+        {"value": "no", "answer": "No"},
+        {"value": "maybe", "answer": "Not pure"},
+        {"value": "what", "answer": "What ??!"}
+      ]
+    }
+
+  ]
+}
