@@ -1,19 +1,17 @@
-package com.extrabhp.model;
+package com.extrabhp.model.Question;
 
 import com.extrabhp.core.WhatCar;
 import com.extrabhp.exception.QuestionNotFoundException;
 
-/**
- * Created by stig on 9/9/17.
- */
-public class HybridCars {
+/**  * @author Thaer AlDwaik <t_dwaik@hotmail.com>  */
+public class ElectricCar {
 
-    public static String questionName = "hybrid_cars";
+    public static String questionName = "electric_car";
 
-    public static String yesOnly = "yes-only";
+    public static String noWay = "no-way";
     public static String yesOption = "yes-option";
-    public static String no = "no";
-    public static String what = "what";
+    public static String onlyFast = "only-fast";
+    public static String onlyElectric = "only-electric";
 
     public static boolean is(String answer) throws QuestionNotFoundException {
         return answer().equals(answer);

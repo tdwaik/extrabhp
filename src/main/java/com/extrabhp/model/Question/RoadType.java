@@ -1,21 +1,17 @@
-package com.extrabhp.model;
+package com.extrabhp.model.Question;
 
 import com.extrabhp.core.WhatCar;
 import com.extrabhp.exception.QuestionNotFoundException;
 
 /**
- * Created by stig on 9/9/17.
+ * @author Thaer AlDwaik <t_dwaik@hotmail.com>
  */
-public class WhatInMind {
+public class RoadType {
 
-    public static String questionName =  "what_in_mind";
+    public static String questionName = "road_type";
 
-    public static String hypercar = "hypercar";
-    public static String supercar = "supercar";
-    public static String musclecar = "musclecar";
-    public static String german = "german";
-    public static String jdm = "jdm";
-    public static String all = "all";
+    public static String track = "track";
+    public static String road = "road";
     public static String what = "what";
 
     public static boolean is(String answer) throws QuestionNotFoundException {
@@ -29,5 +25,4 @@ public class WhatInMind {
 
         return WhatCar.answers.get(questionName).get(0);
     }
-
 }

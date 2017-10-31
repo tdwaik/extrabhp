@@ -1,6 +1,9 @@
 package com.extrabhp.controller;
 
 import com.extrabhp.core.WhatCar;
+import com.extrabhp.entity.WhatCarLog;
+import com.extrabhp.model.WhatCarModel;
+import com.google.gson.Gson;
 import org.json.JSONObject;
 
 import javax.ws.rs.*;
@@ -39,6 +42,17 @@ public class WhatCarController extends AbstarctController {
 
                 return Response.ok().entity(next).build();
             }else if(qname.containsKey("result")) {
+
+                WhatCarLog whatCarLog = new WhatCarLog();
+                String result = qname.get("result");
+                Gson gson = new Gson();
+                whatCarLog.setAnswers(gson.toJson(answers))
+                        .setResult(qname.get("result"))
+                        .setStatus(result.equals(WhatCar.noResults)? 404 : 200);
+                WhatCarModel whatCarModel = new WhatCarModel();
+                whatCarModel.addWhatCar(whatCarLog);
+
+
                 return Response.status(Response.Status.CREATED).entity(toJson(qname.get("result"))).build();
             }
 

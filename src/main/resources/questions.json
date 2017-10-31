@@ -144,7 +144,8 @@
         {"value": "luxury", "answer": "Luxury"},
         {"value": "rare", "answer": "Rare Car"},
         {"value": "beautiful", "answer": "Beautiful car"},
-        {"value": "performance", "answer": "Performance"}
+        {"value": "performance", "answer": "Performance"},
+        {"value": "practical", "answer": "Practical"}
       ]
     },
     {

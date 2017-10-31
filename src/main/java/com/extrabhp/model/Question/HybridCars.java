@@ -1,18 +1,18 @@
-package com.extrabhp.model;
+package com.extrabhp.model.Question;
 
 import com.extrabhp.core.WhatCar;
 import com.extrabhp.exception.QuestionNotFoundException;
 
 /**
- * Created by stig on 9/9/17.
+ * @author Thaer AlDwaik <t_dwaik@hotmail.com>
  */
-public class InductionType {
+public class HybridCars {
 
-    public static String questionName = "induction_type";
+    public static String questionName = "hybrid_cars";
 
-    public static String naturallyAspirated = "na";
-    public static String forcedInduction = "forced-induction";
-    public static String both = "both";
+    public static String yesOnly = "yes-only";
+    public static String yesOption = "yes-option";
+    public static String no = "no";
     public static String what = "what";
 
     public static boolean is(String answer) throws QuestionNotFoundException {
@@ -26,5 +26,4 @@ public class InductionType {
 
         return WhatCar.answers.get(questionName).get(0);
     }
-
 }

@@ -1,10 +1,10 @@
-package com.extrabhp.model;
+package com.extrabhp.model.Question;
 
 import com.extrabhp.core.WhatCar;
 import com.extrabhp.exception.QuestionNotFoundException;
 
 /**
- * Created by stig on 9/9/17.
+ * @author Thaer AlDwaik <t_dwaik@hotmail.com>
  */
 public class EnvironmentCare {
 

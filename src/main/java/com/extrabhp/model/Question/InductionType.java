@@ -1,19 +1,19 @@
-package com.extrabhp.model;
+package com.extrabhp.model.Question;
 
 import com.extrabhp.core.WhatCar;
 import com.extrabhp.exception.QuestionNotFoundException;
 
 /**
- * Created by stig on 9/9/17.
+ * @author Thaer AlDwaik <t_dwaik@hotmail.com>
  */
-public class MoneyStatus {
+public class InductionType {
 
-    public static String questionName = "money_status";
+    public static String questionName = "induction_type";
 
-    public static String millionaire = "millionaire";
-    public static String aLot = "a-lot";
-    public static String enough = "enough";
-    public static String broke = "broke";
+    public static String naturallyAspirated = "na";
+    public static String forcedInduction = "forced-induction";
+    public static String both = "both";
+    public static String what = "what";
 
     public static boolean is(String answer) throws QuestionNotFoundException {
         return answer().equals(answer);

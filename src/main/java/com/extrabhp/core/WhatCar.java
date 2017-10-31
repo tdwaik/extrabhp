@@ -1,7 +1,8 @@
 package com.extrabhp.core;
 
 import com.extrabhp.exception.QuestionNotFoundException;
-import com.extrabhp.model.*;
+import com.extrabhp.model.Question.*;
+import com.extrabhp.model.WhatCarModel;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -119,6 +120,33 @@ public class WhatCar {
 
             }else if(Petrolhead.is(Petrolhead.no) || Petrolhead.is(Petrolhead.what)) { // non-petrolhead
 
+                if(MoneyStatus.is(MoneyStatus.millionaire)) {
+                    if (GoodDriver.is(GoodDriver.pro) || GoodDriver.is(GoodDriver.yes)) {
+                        if(LookingFor.is(LookingFor.beautiful)) {
+                            result.put("result", "I'll recommend a super car, what about `Aston Martin Vanquish`");
+                            return result;
+                        }else if(LookingFor.is(LookingFor.luxury)) {
+                            result.put("result", "Just Pick any `Rolls Royce` Or `Bentley Mulsanne`");
+                            return result;
+                        }else if(LookingFor.is(LookingFor.drivingExperience) || LookingFor.is(LookingFor.performance)) {
+                            result.put("result", "I'll recommend a super car, what about `Lamborghini Huracan` or `Ferrari LaFerrari` or `Porsche 911 GT3`");
+                            return result;
+                        }else if(LookingFor.is(LookingFor.rare)) {
+                            result.put("result", "I'll recommend a super car, what about `Ferrari LaFerrari`");
+                            return result;
+                        }else if(LookingFor.is(LookingFor.practical)) {
+                            result.put("result", "Pick any 4 door `Rolls Royce` or `Bentley`, also some good options `Mercedes-Benz Maybach`, `Jaguar XJ`, `Porsche Panamera Turbo S`");
+                            return result;
+                        }
+                    }else if (GoodDriver.is(GoodDriver.modest)) {
+                        result.put("result", "Bear with me, I'll not recommend a super car for you cuz you're a modest driver, but here a good car for a millionaire what about `Nissan GTR Nismo`");
+                        return result;
+                    }else if(GoodDriver.is(GoodDriver.stupid)) {
+                        result.put("result", "Bear with me, I'll not recommend a super car for you cuz you're a stupid driver, but here a good car for a millionaire what about `Nissan GTR Nismo`");
+                        return result;
+                    }
+                }
+
                 // environment_care
                 if(EnvironmentCare.is(EnvironmentCare.aLot) || EnvironmentCare.is(EnvironmentCare.aLittle)) {
 
@@ -143,29 +171,7 @@ public class WhatCar {
                     }
                 }
 
-                if(MoneyStatus.is(MoneyStatus.millionaire)) {
-                    if (GoodDriver.is(GoodDriver.pro) || GoodDriver.is(GoodDriver.yes)) {
-                        if(LookingFor.is(LookingFor.beautiful)) {
-                            result.put("result", "I'll recommend a super car, what about `Aston Martin Vanquish`");
-                            return result;
-                        }else if(LookingFor.is(LookingFor.luxury)) {
-                            result.put("result", "I'll recommend a super car, what about `Lamborghini Huracan` or `Ferrari LaFerrari`");
-                            return result;
-                        }else if(LookingFor.is(LookingFor.drivingExperience) || LookingFor.is(LookingFor.performance)) {
-                            result.put("result", "I'll recommend a super car, what about `Lamborghini Huracan` or `Ferrari LaFerrari` or `Porsche 911 GT3`");
-                            return result;
-                        }else if(LookingFor.is(LookingFor.rare)) {
-                            result.put("result", "I'll recommend a super car, what about `Ferrari LaFerrari`");
-                            return result;
-                        }
-                    }else if (GoodDriver.is(GoodDriver.modest)) {
-                        result.put("result", "Bear with me, I'll not recommend a super car for you cuz you're a modest driver, but here a good car for a millionaire what about `Nissan GTR Nismo`");
-                        return result;
-                    }else if(GoodDriver.is(GoodDriver.stupid)) {
-                        result.put("result", "Bear with me, I'll not recommend a super car for you cuz you're a stupid driver, but here a good car for a millionaire what about `Nissan GTR Nismo`");
-                        return result;
-                    }
-                }else if(MoneyStatus.is(MoneyStatus.aLot)) {
+                if(MoneyStatus.is(MoneyStatus.aLot)) {
                     result.put("result", "What about `BMW M4` or Mercedes-AMG GT`");
                     return result;
                 }else if(MoneyStatus.is(MoneyStatus.enough)) {

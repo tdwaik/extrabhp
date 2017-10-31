@@ -1,7 +1,7 @@
 package com.extrabhp.exception;
 
 /**
- * Created by stig on 9/9/17.
+ * @author Thaer AlDwaik <t_dwaik@hotmail.com>
  */
 public class QuestionNotFoundException extends Exception {
 

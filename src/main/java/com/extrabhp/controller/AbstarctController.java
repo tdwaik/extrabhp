@@ -4,9 +4,7 @@ import com.google.gson.Gson;
 
 import java.util.HashMap;
 
-/**
- * Created by stig on 7/14/17.
- */
+/**  * @author Thaer AlDwaik <t_dwaik@hotmail.com>  */
 abstract class AbstarctController {
 
     /**
