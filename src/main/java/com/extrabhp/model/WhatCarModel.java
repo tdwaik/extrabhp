@@ -3,6 +3,7 @@ package com.extrabhp.model;
 import com.extrabhp.entity.WhatCarLog;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
@@ -10,7 +11,7 @@ import java.sql.Statement;
  */
 public class WhatCarModel extends AbstractModel {
 
-    public void addWhatCar(WhatCarLog whatCarLog) {
+    public int addWhatCar(WhatCarLog whatCarLog) {
         try {
             String query = "INSERT INTO " + WhatCarLog.tableName + " (answers, result, status) VALUES (?, ?, ?)";
             PreparedStatement preparedStatement = dbCconnection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
@@ -18,9 +19,18 @@ public class WhatCarModel extends AbstractModel {
             preparedStatement.setString(2, whatCarLog.getResult());
             preparedStatement.setInt(3, whatCarLog.getStatus());
             preparedStatement.executeUpdate();
+
+            ResultSet rs = preparedStatement.getGeneratedKeys();
+
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+
         }catch (Exception e) {
             // TODO Log
         }
+
+        return 0;
     }
 
     public void addIsHelpful(WhatCarLog whatCarLog) {

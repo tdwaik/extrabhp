@@ -1,5 +1,7 @@
 package com.extrabhp.controller;
 
+import com.extrabhp.controller.RESTful.helper.WhatCar.Feedback;
+import com.extrabhp.controller.RESTful.helper.WhatCar.IsHelpful;
 import com.extrabhp.core.WhatCar;
 import com.extrabhp.entity.WhatCarLog;
 import com.extrabhp.model.WhatCarModel;
@@ -10,6 +12,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -20,6 +23,7 @@ public class WhatCarController extends AbstarctController {
 
     @POST
     @Path("/")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     public Response getWhatCar(MultivaluedMap<String, String> answers) {
 
@@ -50,16 +54,64 @@ public class WhatCarController extends AbstarctController {
                         .setResult(qname.get("result"))
                         .setStatus(result.equals(WhatCar.noResults)? 404 : 200);
                 WhatCarModel whatCarModel = new WhatCarModel();
-                whatCarModel.addWhatCar(whatCarLog);
+                int whatCarLogId = whatCarModel.addWhatCar(whatCarLog);
 
-
-                return Response.status(Response.Status.CREATED).entity(toJson(qname.get("result"))).build();
+                Map<String, String> response = new HashMap<>();
+                response.put("result", result);
+                response.put("whatCarLogId", Integer.toString(whatCarLogId));
+                return Response.status(Response.Status.CREATED).entity(toJson(response)).build();
             }
 
             return Response.status(Response.Status.BAD_REQUEST).build();
 
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+            // TODO Log
+            e.printStackTrace();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @POST
+    @Path("/isHelpful")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addIsHelpful(IsHelpful isHelpful) {
+        try {
+            WhatCarModel whatCarModel = new WhatCarModel();
+            WhatCarLog whatCarLog = new WhatCarLog();
+
+            whatCarLog.setIsHelpful(isHelpful.getIsHelpful())
+                    .setId(isHelpful.getWhatCarLogId());
+
+            whatCarModel.addIsHelpful(whatCarLog);
+
+            return Response.status(Response.Status.CREATED).build();
+        }catch (Exception e) {
+            // TODO Log
+            e.printStackTrace();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @POST
+    @Path("/feedback")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addIsHelpful(Feedback feedback) {
+        try {
+            WhatCarModel whatCarModel = new WhatCarModel();
+            WhatCarLog whatCarLog = new WhatCarLog();
+
+            whatCarLog.setFeedback(feedback.getFeedback())
+                    .setId(feedback.getWhatCarLogId());
+
+            whatCarModel.addFeedback(whatCarLog);
+
+            return Response.status(Response.Status.CREATED).build();
+        }catch (Exception e) {
+            // TODO Log
+            e.printStackTrace();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
 }

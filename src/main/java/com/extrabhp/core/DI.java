@@ -26,6 +26,7 @@ public class DI {
                         .setDatabaseName(Config.getConfig("mysql.database_name").trim())
                         .connect();
             } catch (SQLException | ClassNotFoundException e) {
+                e.printStackTrace();
                 throw new IllegalArgumentException(e.getMessage());
             }
         }
