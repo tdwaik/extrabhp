@@ -2,7 +2,6 @@ package com.extrabhp.core;
 
 import com.extrabhp.exception.QuestionNotFoundException;
 import com.extrabhp.model.Question.*;
-import com.extrabhp.model.WhatCarModel;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -44,7 +43,7 @@ public class WhatCar {
 
                 if(WhatInMind.is(WhatInMind.hypercar)) {
                     if(MoneyStatus.is(MoneyStatus.millionaire)) {
-                        result.put("result", "As Jeremy Clarkson once said \"Supercars are designed to be very, very fast, drivers cars above all. Hypercars are designed to show off, turn heads, and be as flamboyantly exotic as possible\". They are very very Rare, Fast, Luxurious cars, so if you're really looking for a Hypercar i'll not ask you anymore questions, I'll give you a shorten list of a Hypercars, you need to drive it and get to know the car soul first: Ferrari LaFerrari, McLaren P1, Porsche 918 Spyder, Bugatti Chiron, Bugatti Veyron, Lamborghini Aventador, Pagani Huayra, Aston Martin One-77, etc. Good Luck.");
+                        result.put("result", "As Jeremy Clarkson once said \"Supercars are designed to be very, very fast, drivers cars above all. Hypercars are designed to show off, turn heads, and be as flamboyantly exotic as possible\". They are very very Rare, Fast, Luxurious cars, so if you're really looking for a Hypercar i'll not ask you anymore questions, I'll give you a shorten list of a Hypercars, you need to drive it and get to know the car soul first: Ferrari LaFerrari, koenigsegg one:1, McLaren P1, Porsche 918 Spyder, Bugatti Chiron, Bugatti Veyron, Lamborghini Aventador, Pagani Huayra, Aston Martin One-77, etc. Good Luck.");
                         return result;
                     }else {
                         result.put("result", "Ya, in your dreams!! Be a Millionaire first");
@@ -53,7 +52,7 @@ public class WhatCar {
                 }
 
                 if(WhatInMind.is(WhatInMind.supercar)) {
-                    if(MoneyStatus.is(MoneyStatus.millionaire) || MoneyStatus.is(MoneyStatus.aLot)) {
+                    if(MoneyStatus.is(MoneyStatus.millionaire)) {
 
                         if(ElectricCar.is(ElectricCar.onlyElectric)) {
                             if (GoodDriver.is(GoodDriver.pro) || GoodDriver.is(GoodDriver.yes) || GoodDriver.is(GoodDriver.modest)) {
@@ -63,25 +62,37 @@ public class WhatCar {
                             }
                             return result;
 
+                        }
+
+                        if(HybridCars.is(HybridCars.yesOnly)) {
+                            result.put("result", "Ferrari LaFerrari");
+                            return result;
+
                         }else {
-                            String hybridCar = HybridCars.answer();
-
-                            if(!hybridCar.equals(HybridCars.yesOnly)) {
-                                String roadType = RoadType.answer();
-
-                                String lookingFor = LookingFor.answer();
-                            }
-
                             String inductionType = InductionType.answer();
 
                             String transmissionType = TransmissionType.answer();
-
-                            String roadType = RoadType.answer();
-
-                            String lookingFor = LookingFor.answer();
-
                         }
 
+                        String roadType = RoadType.answer();
+
+                        String lookingFor = LookingFor.answer();
+
+
+                    }else if(MoneyStatus.is(MoneyStatus.aLot)) {
+                        if(HybridCars.is(HybridCars.yesOnly)) {
+                            result.put("result", "BMW I8");
+                            return result;
+
+                        }else {
+                            String inductionType = InductionType.answer();
+
+                            String transmissionType = TransmissionType.answer();
+                        }
+
+                        String roadType = RoadType.answer();
+
+                        String lookingFor = LookingFor.answer();
                     }else {
                         result.put("result", "Ya, in your dreams!! Get Some money first");
                         return result;
@@ -172,13 +183,48 @@ public class WhatCar {
                 }
 
                 if(MoneyStatus.is(MoneyStatus.aLot)) {
-                    result.put("result", "What about `BMW M4` or Mercedes-AMG GT`");
+                    if(LookingFor.is(LookingFor.luxury)) {
+                        result.put("result", "What about `Mercedes-Benz S-Class`");
+                        return result;
+                    }else if(LookingFor.is(LookingFor.beautiful)) {
+                        result.put("result", "What about Audi A6");
+                        return result;
+                    }else if(LookingFor.is(LookingFor.drivingExperience) || LookingFor.is(LookingFor.performance)) {
+                        result.put("result", "What about `BMW M3/M4` or Mercedes-AMG GT`");
+                        return result;
+                    }else if(LookingFor.is(LookingFor.practical)) {
+                        result.put("result", "What about `Lexus RX`");
+                        return result;
+                    }else if(LookingFor.is(LookingFor.rare)) {
+                        result.put("result", "What about `Maserati Quattroporte`");
+                        return result;
+                    }
+
+                    result.put("result", "What about `BMW M5` or `Mercedes-Benz E63 AMG`");
                     return result;
+
                 }else if(MoneyStatus.is(MoneyStatus.enough)) {
-                    result.put("result", "What about `BMW 3 Series`");
+                    if(LookingFor.is(LookingFor.luxury)) {
+                        result.put("result", "What about `Mercedes-Benz C-Class` Or `Jaguar XE`");
+                        return result;
+                    }else if(LookingFor.is(LookingFor.beautiful)) {
+                        result.put("result", "What about Jaguar XE Or Audi A4");
+                        return result;
+                    }else if(LookingFor.is(LookingFor.drivingExperience) || LookingFor.is(LookingFor.performance)) {
+                        result.put("result", "What about `BMW 330I` Or Toyota GT86`");
+                        return result;
+                    }else if(LookingFor.is(LookingFor.practical)) {
+                        result.put("result", "What about `Toyota Camry` Or ` Chevrolet Impala`");
+                        return result;
+                    }else if(LookingFor.is(LookingFor.rare)) {
+                        result.put("result", "What about `Maserati Quattroporte`");
+                        return result;
+                    }
+
+                    result.put("result", "What about `BMW 3 Series` Or `Mercedes-Benz C-Class`");
                     return result;
                 }else if(MoneyStatus.is("broke")) {
-                    result.put("result", "What about `Ford Fiesta S Sedan`");
+                    result.put("result", "What about `Ford Fiesta S Sedan` Or `Hyundai Elantra`");
                     return result;
                 }
 
@@ -204,13 +250,10 @@ public class WhatCar {
             String questionsJsonFile = new String(Files.readAllBytes(Paths.get(App.PATH + "/WEB-INF/classes/questions.json")), StandardCharsets.UTF_8);
             questionsJson = new JSONObject(questionsJsonFile);
         }
-//        String pageName = obj.getJSONObject("questions").getString(qName);
 
         JSONArray arr = questionsJson.getJSONArray("questions");
         for (int i = 0; i < arr.length(); i++) {
             if(arr.getJSONObject(i).getString("name").equals(questionName)) {
-//                String question = arr.getJSONObject(i).getString("question");
-//                System.out.println(question);
                 return arr.getJSONObject(i);
             }
         }
@@ -218,7 +261,7 @@ public class WhatCar {
         return null;
     }
 
-    public static Map<String, String> ask(String questionName) {
+    private static Map<String, String> ask(String questionName) {
         Map<String, String> result = new HashMap<>();
         result.put("next", questionName);
         return result;

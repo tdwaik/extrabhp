@@ -5,11 +5,14 @@ import com.extrabhp.entity.WhatCarLog;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.logging.Logger;
 
 /**
  * @author Thaer Aldwaik <t_dwaik@hotmail.com>
  */
 public class WhatCarModel extends AbstractModel {
+
+    private final static Logger LOGGER = Logger.getLogger(WhatCarModel.class.getName());
 
     public int addWhatCar(WhatCarLog whatCarLog) {
         try {
@@ -27,7 +30,7 @@ public class WhatCarModel extends AbstractModel {
             }
 
         }catch (Exception e) {
-            // TODO Log
+            LOGGER.warning(e.getMessage());
         }
 
         return 0;
@@ -41,7 +44,7 @@ public class WhatCarModel extends AbstractModel {
             preparedStatement.setInt(2, whatCarLog.getId());
             preparedStatement.executeUpdate();
         }catch (Exception e) {
-            // TODO Log
+            LOGGER.warning(e.getMessage());
         }
     }
 
@@ -53,7 +56,7 @@ public class WhatCarModel extends AbstractModel {
             preparedStatement.setInt(2, whatCarLog.getId());
             preparedStatement.executeUpdate();
         }catch (Exception e) {
-            // TODO Log
+            LOGGER.warning(e.getMessage());
         }
     }
 

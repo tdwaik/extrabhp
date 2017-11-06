@@ -14,12 +14,15 @@ import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 /**
  * @author Thaer Aldwaik <t_dwaik@hotmail.com>
  */
 @Path("whatCar")
 public class WhatCarController extends AbstarctController {
+
+    private final static Logger LOGGER = Logger.getLogger(WhatCarController.class.getName());
 
     @POST
     @Path("/")
@@ -28,9 +31,6 @@ public class WhatCarController extends AbstarctController {
     public Response getWhatCar(MultivaluedMap<String, String> answers) {
 
         try {
-
-            System.out.printf("%.3f MB", Runtime.getRuntime().totalMemory() / (1024.0 * 1024.0));
-
             if(answers == null) {
                 return Response.status(Response.Status.BAD_REQUEST).build();
             }
@@ -65,8 +65,7 @@ public class WhatCarController extends AbstarctController {
             return Response.status(Response.Status.BAD_REQUEST).build();
 
         } catch (Exception e) {
-            // TODO Log
-            e.printStackTrace();
+            LOGGER.severe(e.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
@@ -87,8 +86,7 @@ public class WhatCarController extends AbstarctController {
 
             return Response.status(Response.Status.CREATED).build();
         }catch (Exception e) {
-            // TODO Log
-            e.printStackTrace();
+            LOGGER.severe(e.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
@@ -109,8 +107,7 @@ public class WhatCarController extends AbstarctController {
 
             return Response.status(Response.Status.CREATED).build();
         }catch (Exception e) {
-            // TODO Log
-            e.printStackTrace();
+            LOGGER.severe(e.getMessage());
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
