@@ -22,7 +22,7 @@ public class WhatCar {
 
     public static MultivaluedMap<String, String> answers = null;
 
-    public static String noResults = "Sorry, I don't have answer for you right now! The website is still under development, your answers is logged and i'll try to find answer fot you ASAP, kindly try again later, Thanks!";
+    public static String noResults = "Sorry, I don't have answer for you right now! The website is still under development, your answers is logged and i'll try to find answer for you ASAP, kindly try again later, Thanks!";
 
     public static Map<String, String> getNextQuestion(MultivaluedMap<String, String> answers) {
 
@@ -76,7 +76,22 @@ public class WhatCar {
 
                         String roadType = RoadType.answer();
 
-                        String lookingFor = LookingFor.answer();
+                        if(LookingFor.is(LookingFor.beautiful)) {
+                            result.put("result", "I'll recommend a super car, what about `Aston Martin Vanquish`");
+                            return result;
+                        }else if(LookingFor.is(LookingFor.luxury)) {
+                            result.put("result", "Just Pick any `Rolls Royce` Or `Bentley Mulsanne`");
+                            return result;
+                        }else if(LookingFor.is(LookingFor.drivingExperience) || LookingFor.is(LookingFor.performance)) {
+                            result.put("result", "I'll recommend a super car, what about `Lamborghini Huracan` or `Ferrari LaFerrari` or `Porsche 911 GT3`");
+                            return result;
+                        }else if(LookingFor.is(LookingFor.rare)) {
+                            result.put("result", "I'll recommend a super car, what about `Ferrari LaFerrari`");
+                            return result;
+                        }else if(LookingFor.is(LookingFor.practical)) {
+                            result.put("result", "Pick any 4 door `Rolls Royce` or `Bentley`, also some good options `Mercedes-Benz Maybach`, `Jaguar XJ`, `Porsche Panamera Turbo S`");
+                            return result;
+                        }
 
 
                     }else if(MoneyStatus.is(MoneyStatus.aLot)) {
@@ -92,7 +107,6 @@ public class WhatCar {
 
                         String roadType = RoadType.answer();
 
-                        String lookingFor = LookingFor.answer();
                     }else {
                         result.put("result", "Ya, in your dreams!! Get Some money first");
                         return result;

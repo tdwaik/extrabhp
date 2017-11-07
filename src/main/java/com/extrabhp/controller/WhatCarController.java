@@ -95,7 +95,7 @@ public class WhatCarController extends AbstarctController {
     @Path("/feedback")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addIsHelpful(Feedback feedback) {
+    public Response addFeedback(Feedback feedback) {
         try {
             WhatCarModel whatCarModel = new WhatCarModel();
             WhatCarLog whatCarLog = new WhatCarLog();
