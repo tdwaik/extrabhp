@@ -1,14 +1,11 @@
 package com.extrabhp.core;
 
-import com.extrabhp.core.config.Config;
-
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerResponseContext;
 import javax.ws.rs.container.ContainerResponseFilter;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
-import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -26,7 +23,7 @@ public class CORSResponseFilter implements ContainerResponseFilter {
         try {
             List<String> originList = requestContext.getHeaders().get("Origin");
 
-            if(originList.get(0).equals("http://extrabhp.com") || originList.get(0).equals("http://dev.extrabhp.com") ) {
+            if(originList.get(0).equals("https://extrabhp.com") || originList.get(0).equals("http://extrabhp.com") || originList.get(0).equals("http://dev.extrabhp.com")) {
                 MultivaluedMap<String, Object> headers = responseContext.getHeaders();
 
                 headers.add("Access-Control-Allow-Origin", originList.get(0));
