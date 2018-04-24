@@ -32,7 +32,7 @@ public class CarsTimelineModel extends AbstractModel {
                 carsTimelineResponse.setTitle(resultSet.getString("title"));
                 carsTimelineResponse.setDescription(resultSet.getString("description"));
                 carsTimelineResponse.setImg(resultSet.getString("img"));
-                Date date = resultSet.getDate("release_date");
+                Date date = resultSet.getDate("production_date");
                 Calendar cal = Calendar.getInstance();
                 cal.setTime(date);
                 carsTimelineResponse.setReleaseDate(Integer.toString(cal.get(Calendar.YEAR)));

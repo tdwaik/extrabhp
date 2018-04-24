@@ -15,7 +15,7 @@ public class CarsTimelineResponse {
 
     private String img;
 
-    private String releaseDate;
+    private String productionDate;
 
     public String getCode() {
         return code;
@@ -53,12 +53,12 @@ public class CarsTimelineResponse {
         return this;
     }
 
-    public String getReleaseDate() {
-        return releaseDate;
+    public String getProductionDate() {
+        return productionDate;
     }
 
-    public CarsTimelineResponse setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
+    public CarsTimelineResponse setReleaseDate(String productionDate) {
+        this.productionDate = productionDate;
         return this;
     }
 }
