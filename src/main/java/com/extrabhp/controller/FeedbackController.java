@@ -28,7 +28,7 @@ public class FeedbackController {
         try {
             if(addFeedbackRequest.getContent() == null
                     || addFeedbackRequest.getContent().isEmpty()
-                    || addFeedbackRequest.getContent().length() < 4) {
+                    || addFeedbackRequest.getContent().length() < 3) {
                 return Response.status(Response.Status.BAD_REQUEST).build();
             }
 
